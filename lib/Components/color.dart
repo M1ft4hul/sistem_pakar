@@ -6,6 +6,7 @@ const redColor = Color.fromARGB(255, 166, 44, 44);
 class TColor {
   static Color get primaryColor1 => const Color(0xff92A3FD);
   static Color get primaryColor2 => const Color(0xff9DCEFF);
+  static Color get primaryColor3 => Color.fromARGB(255, 25, 126, 227);
 
   static Color get secondaryColor1 => const Color(0xffC58BF2);
   static Color get secondaryColor2 => const Color(0xffEEA4CE);
