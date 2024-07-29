@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sistem_pakar/Components/color.dart';
+import 'package:sistem_pakar/page/jadwal_tidur.dart';
 
 class Pola extends StatelessWidget {
   const Pola({super.key});
@@ -222,13 +223,20 @@ class Pola extends StatelessWidget {
                 ),
                 width: MediaQuery.of(context).size.width,
                 child: TextButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Jadwal(),
+                      ),
+                    );
+                  },
                   icon: const Icon(
                     Icons.av_timer,
                     color: Colors.white,
                   ),
                   label: const Text(
-                    'Sleep Schedule',
+                    'Atur jadwal tidur anda',
                     style: TextStyle(
                       color: Colors.white,
                     ),
