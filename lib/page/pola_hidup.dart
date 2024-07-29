@@ -51,9 +51,10 @@ class Pola extends StatelessWidget {
                         Text(
                           "Target Hari ini",
                           style: TextStyle(
-                              color: TColor.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w700),
+                            color: TColor.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
                         // SizedBox(
                         //   width: 30,
@@ -118,7 +119,7 @@ class Pola extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: media.width * 0.09,
+                height: media.width * 0.07,
               ),
               Container(
                 padding:
@@ -131,6 +132,117 @@ class Pola extends StatelessWidget {
                     ],
                   ),
                   borderRadius: BorderRadius.circular(15),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          "assets/sleep.png",
+                          height: 170,
+                          width: 170,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: media.width * 0.01,
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          "Waktu Tidur",
+                          style: TextStyle(
+                            color: TColor.black,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: media.width * 0.04,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "• ",
+                          style: TextStyle(fontSize: 20), // ukuran bullet
+                        ),
+                        Expanded(
+                          child: Text(
+                            "14 - 17 tahun = 8 - 10 jam",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: TColor.black,
+                              fontWeight: FontWeight.w700,
+                            ), // ukuran teks
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10), // Spasi antar item
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "• ",
+                          style: TextStyle(fontSize: 20), // ukuran bullet
+                        ),
+                        Expanded(
+                          child: Text(
+                            "18 - 25 tahun = 7 - 9 jam",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: TColor.black,
+                              fontWeight: FontWeight.w700,
+                            ), // ukuran teks
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10), // Spasi antar item
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "• ",
+                          style: TextStyle(fontSize: 20), // ukuran bullet
+                        ),
+                        Expanded(
+                          child: Text(
+                            "26 - 54 tahun = 7 - 9 jam",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: TColor.black,
+                              fontWeight: FontWeight.w700,
+                            ), // ukuran teks
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10), // Spasi antar item
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "• ",
+                          style: TextStyle(fontSize: 20), // ukuran bullet
+                        ),
+                        Expanded(
+                          child: Text(
+                            "Lansia > 65 tahun = 7 - 8 jam",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: TColor.black,
+                              fontWeight: FontWeight.w700,
+                            ), // ukuran teks
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               )
             ],
