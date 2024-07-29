@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sistem_pakar/Components/color.dart';
-import 'package:sistem_pakar/page/dashboard.dart';
 
 class Pola extends StatelessWidget {
   const Pola({super.key});
@@ -56,39 +55,6 @@ class Pola extends StatelessWidget {
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                        // SizedBox(
-                        //   width: 30,
-                        //   height: 30,
-                        //   child: Container(
-                        //     decoration: BoxDecoration(
-                        //       gradient: LinearGradient(
-                        //         colors: TColor.primaryG,
-                        //       ),
-                        //       borderRadius: BorderRadius.circular(10),
-                        //     ),
-                        //     child: MaterialButton(
-                        //       onPressed: () {
-                        //         Navigator.pushReplacement(
-                        //             context,
-                        //             MaterialPageRoute(
-                        //                 builder: (context) => const Home()));
-                        //       },
-                        //       padding: EdgeInsets.zero,
-                        //       height: 30,
-                        //       shape: RoundedRectangleBorder(
-                        //           borderRadius: BorderRadius.circular(25)),
-                        //       textColor: TColor.primaryColor1,
-                        //       minWidth: double.maxFinite,
-                        //       elevation: 0,
-                        //       color: Colors.transparent,
-                        //       child: const Icon(
-                        //         Icons.home,
-                        //         color: Colors.white,
-                        //         size: 15,
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ),
                       ],
                     ),
                     const SizedBox(
@@ -244,7 +210,31 @@ class Pola extends StatelessWidget {
                     ),
                   ],
                 ),
-              )
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              // tombol buat jadwal tidur
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(17),
+                  color: primaryColor,
+                ),
+                width: MediaQuery.of(context).size.width,
+                child: TextButton.icon(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.av_timer,
+                    color: Colors.white,
+                  ),
+                  label: const Text(
+                    'Sleep Schedule',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
