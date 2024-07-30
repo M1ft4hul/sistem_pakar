@@ -5,6 +5,7 @@ import 'package:sistem_pakar/Components/color.dart';
 import 'package:sistem_pakar/Components/round_button.dart';
 import 'package:sistem_pakar/Components/today_sleep_schedule_row.dart';
 import 'package:sistem_pakar/page/pola_hidup.dart';
+import 'package:sistem_pakar/page/tambah_jadwal_tidur.dart';
 
 class Jadwal extends StatefulWidget {
   const Jadwal({super.key});
@@ -135,7 +136,7 @@ class _JadwalState extends State<Jadwal> {
                   ),
                 ),
                 SizedBox(
-                  height: media.width * 0.02,
+                  height: media.width * 0.01,
                 ),
                 CalendarAgenda(
                   controller: _calendarAgendaControllerAppBar,
@@ -216,14 +217,14 @@ class _JadwalState extends State<Jadwal> {
       ),
       floatingActionButton: InkWell(
         onTap: () {
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (context) => SleepAddAlarmView(
-          //       date: _selectedDateAppBBar,
-          //     ),
-          //   ),
-          // );
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const JadwalTidur(
+                  // date: _selectedDateAppBBar,
+                  ),
+            ),
+          );
         },
         child: Container(
           width: 55,

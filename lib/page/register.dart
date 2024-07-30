@@ -28,7 +28,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Future _daftar() async {
     final response = await http.post(
-        Uri.parse('http://192.168.1.7/sistem_pakar_app/Register.php'),
+        Uri.parse('http://192.168.43.37/sistem_pakar_app/Register.php'),
         body: {
           "nama_lengkap": nama_lengkap.text,
           "email": email.text,
