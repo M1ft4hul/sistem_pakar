@@ -1,6 +1,9 @@
+import 'package:calendar_agenda/calendar_agenda.dart';
 import 'package:flutter/material.dart';
+import 'package:simple_animation_progress_bar/simple_animation_progress_bar.dart';
 import 'package:sistem_pakar/Components/color.dart';
 import 'package:sistem_pakar/Components/round_button.dart';
+import 'package:sistem_pakar/Components/today_sleep_schedule_row.dart';
 import 'package:sistem_pakar/page/pola_hidup.dart';
 
 class Jadwal extends StatefulWidget {
@@ -11,6 +14,31 @@ class Jadwal extends StatefulWidget {
 }
 
 class _JadwalState extends State<Jadwal> {
+  CalendarAgendaController _calendarAgendaControllerAppBar =
+      CalendarAgendaController();
+  late DateTime _selectedDateAppBBar;
+
+  List todaySleepArr = [
+    {
+      "name": "Bedtime",
+      "image": "assets/bed.png",
+      "time": "01/06/2023 09:00 PM",
+      "duration": "in 6hours 22minutes"
+    },
+    {
+      "name": "Alarm",
+      "image": "assets/alaarm.png",
+      "time": "02/06/2023 05:10 AM",
+      "duration": "in 14hours 30minutes"
+    },
+    {
+      "name": "Alarm",
+      "image": "assets/alaarm.png",
+      "time": "02/06/2023 05:10 AM",
+      "duration": "in 14hours 30minutes"
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
@@ -47,10 +75,12 @@ class _JadwalState extends State<Jadwal> {
                     padding: const EdgeInsets.all(20),
                     height: media.width * 0.4,
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(colors: [
-                        TColor.primaryColor2.withOpacity(0.4),
-                        TColor.primaryColor1.withOpacity(0.4)
-                      ]),
+                      gradient: LinearGradient(
+                        colors: [
+                          TColor.primaryColor2.withOpacity(0.4),
+                          TColor.primaryColor1.withOpacity(0.4)
+                        ],
+                      ),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Row(
@@ -105,23 +135,116 @@ class _JadwalState extends State<Jadwal> {
                   ),
                 ),
                 SizedBox(
-                  height: media.width * 0.05,
+                  height: media.width * 0.02,
                 ),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                  child: Text(
-                    "Your Schedule",
-                    style: TextStyle(
-                      color: TColor.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
+                CalendarAgenda(
+                  controller: _calendarAgendaControllerAppBar,
+                  appbar: false,
+                  selectedDayPosition: SelectedDayPosition.center,
+                  leading: IconButton(
+                    onPressed: () {},
+                    icon: Image.asset(
+                      "assets/ArrowLeft.png",
+                      width: 15,
+                      height: 15,
+                    ),
+                  ),
+                  training: IconButton(
+                    onPressed: () {},
+                    icon: Image.asset(
+                      "assets/ArrowRight.png",
+                      width: 15,
+                      height: 15,
+                    ),
+                  ),
+                  weekDay: WeekDay.short,
+                  dayNameFontSize: 12,
+                  dayNumberFontSize: 16,
+                  dayBGColor: Colors.grey.withOpacity(0.15),
+                  titleSpaceBetween: 15,
+                  backgroundColor: Colors.transparent,
+                  // fullCalendar: false,
+                  fullCalendarScroll: FullCalendarScroll.horizontal,
+                  fullCalendarDay: WeekDay.short,
+                  selectedDateColor: Colors.white,
+                  dateColor: Colors.black,
+                  locale: 'en',
+
+                  initialDate: DateTime.now(),
+                  calendarEventColor: TColor.primaryColor2,
+                  firstDate: DateTime.now().subtract(const Duration(days: 140)),
+                  lastDate: DateTime.now().add(const Duration(days: 60)),
+
+                  onDateSelected: (date) {
+                    _selectedDateAppBBar = date;
+                  },
+                  selectedDayLogo: Container(
+                    width: double.maxFinite,
+                    height: double.maxFinite,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: TColor.primaryG,
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: media.width * 0.03,
+                ),
+                ListView.builder(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: todaySleepArr.length,
+                  itemBuilder: (context, index) {
+                    var sObj = todaySleepArr[index] as Map? ?? {};
+                    return TodaySleepScheduleRow(
+                      sObj: sObj,
+                    );
+                  },
+                ),
               ],
-            )
+            ),
+            SizedBox(
+              height: media.width * 0.05,
+            ),
           ],
+        ),
+      ),
+      floatingActionButton: InkWell(
+        onTap: () {
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(
+          //     builder: (context) => SleepAddAlarmView(
+          //       date: _selectedDateAppBBar,
+          //     ),
+          //   ),
+          // );
+        },
+        child: Container(
+          width: 55,
+          height: 55,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(colors: TColor.secondaryG),
+            borderRadius: BorderRadius.circular(27.5),
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 5,
+                offset: Offset(0, 2),
+              )
+            ],
+          ),
+          alignment: Alignment.center,
+          child: Icon(
+            Icons.add,
+            size: 20,
+            color: TColor.white,
+          ),
         ),
       ),
     );

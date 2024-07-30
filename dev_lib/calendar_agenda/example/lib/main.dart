@@ -12,13 +12,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        primarySwatch: Colors.blue,
-      ),
       home: ExamplePage(),
     );
   }
@@ -55,7 +48,7 @@ class _ExamplePageState extends State<ExamplePage> {
       appBar: CalendarAgenda(
         controller: _calendarAgendaControllerAppBar,
         appbar: true,
-        selectedDayPosition: SelectedDayPosition.right,
+        selectedDayPosition: SelectedDayPosition.center,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios_new,
@@ -64,10 +57,15 @@ class _ExamplePageState extends State<ExamplePage> {
           onPressed: () {},
         ),
         weekDay: WeekDay.long,
+        dayNameFontSize: 12,
+        dayNumberFontSize: 16,
+        dayBGColor: Colors.grey.withOpacity(0.15),
+        titleSpaceBetween: 15,
+        backgroundColor: Colors.white,
         fullCalendarScroll: FullCalendarScroll.horizontal,
         fullCalendarDay: WeekDay.long,
-        selectedDateColor: Colors.green.shade900,
-        dateColor: Colors.white,
+        selectedDateColor: Colors.white,
+        dateColor: Colors.black,
         locale: 'en',
         initialDate: DateTime.now(),
         calendarEventColor: Colors.green,
@@ -82,13 +80,16 @@ class _ExamplePageState extends State<ExamplePage> {
             _selectedDateAppBBar = date;
           });
         },
-        calendarLogo: Image.network(
-          'https://www.kindpng.com/picc/m/355-3557482_flutter-logo-png-transparent-png.png',
-          scale: 5.0,
-        ),
-        selectedDayLogo: NetworkImage(
-          'https://www.kindpng.com/picc/m/355-3557482_flutter-logo-png-transparent-png.png',
-          scale: 15.0,
+        selectedDayLogo: Container(
+          width: double.maxFinite,
+          height: double.maxFinite,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+              const Color(0xff9DCEFF),
+              const Color(0xff92A3FD),
+            ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+            borderRadius: BorderRadius.circular(10.0),
+          ),
         ),
       ),
       body: Center(
@@ -101,50 +102,6 @@ class _ExamplePageState extends State<ExamplePage> {
               child: Text("Today, appbar = true"),
             ),
             Text('Selected date is $_selectedDateAppBBar'),
-            SizedBox(
-              height: 20.0,
-            ),
-            CalendarAgenda(
-              controller: _calendarAgendaControllerNotAppBar,
-              leading: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.3,
-                child: Text(
-                  "Agenda anda hari ini adalah sebagai berikut",
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-              // fullCalendar: false,
-              locale: 'en',
-              weekDay: WeekDay.long,
-              fullCalendarDay: WeekDay.short,
-              selectedDateColor: Colors.blue.shade900,
-              initialDate: DateTime.now(),
-              firstDate: DateTime.now().subtract(Duration(days: 140)),
-              lastDate: DateTime.now().add(Duration(days: 4)),
-              events: List.generate(
-                  100,
-                  (index) => DateTime.now()
-                      .subtract(Duration(days: index * random.nextInt(5)))),
-              onDateSelected: (date) {
-                setState(() {
-                  _selectedDateNotAppBBar = date;
-                });
-              },
-              calendarLogo: Image.network(
-                'https://www.kindpng.com/picc/m/355-3557482_flutter-logo-png-transparent-png.png',
-                scale: 5.0,
-              ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                _calendarAgendaControllerNotAppBar.goToDay(DateTime.now());
-              },
-              child: Text("Today, appbar = false (default value)"),
-            ),
-            Text('Selected date is $_selectedDateNotAppBBar'),
             SizedBox(
               height: 20.0,
             ),
