@@ -32,13 +32,21 @@ class _JadwalState extends State<Jadwal> {
       "time": "02/06/2023 05:10 AM",
       "duration": "in 14hours 30minutes"
     },
-    {
-      "name": "Alarm",
-      "image": "assets/alaarm.png",
-      "time": "02/06/2023 05:10 AM",
-      "duration": "in 14hours 30minutes"
-    },
+    // {
+    //   "name": "Alarm",
+    //   "image": "assets/alaarm.png",
+    //   "time": "02/06/2023 05:10 AM",
+    //   "duration": "in 14hours 30minutes"
+    // },
   ];
+
+  List<int> showingTooltipOnSpots = [4];
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedDateAppBBar = DateTime.now();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -195,6 +203,8 @@ class _JadwalState extends State<Jadwal> {
                 SizedBox(
                   height: media.width * 0.03,
                 ),
+
+                // data jadwal tidur
                 ListView.builder(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   physics: const NeverScrollableScrollPhysics(),
@@ -207,6 +217,7 @@ class _JadwalState extends State<Jadwal> {
                     );
                   },
                 ),
+                // end
               ],
             ),
             SizedBox(
@@ -215,14 +226,16 @@ class _JadwalState extends State<Jadwal> {
           ],
         ),
       ),
+
+      // tambah jadwal tidur
       floatingActionButton: InkWell(
         onTap: () {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const JadwalTidur(
-                  // date: _selectedDateAppBBar,
-                  ),
+              builder: (context) => JadwalTidur(
+                date: _selectedDateAppBBar,
+              ),
             ),
           );
         },
