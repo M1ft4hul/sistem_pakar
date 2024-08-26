@@ -29,7 +29,7 @@ class _LoginState extends State<Login> {
 
   Future _login() async {
     final response = await http.post(
-        Uri.parse('http://192.168.43.37/sistem_pakar_app/Login.php'),
+        Uri.parse('http://192.168.1.5/sistem_pakar_app/Login.php'),
         body: {
           "email": email.text,
           "password": password.text,

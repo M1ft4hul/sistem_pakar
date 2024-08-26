@@ -16,8 +16,6 @@ class _JadwalTidurState extends State<JadwalTidur> {
 
   @override
   Widget build(BuildContext context) {
-    var media = MediaQuery.of(context).size;
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: TColor.white,

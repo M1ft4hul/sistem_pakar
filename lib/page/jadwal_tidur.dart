@@ -1,6 +1,5 @@
 import 'package:calendar_agenda/calendar_agenda.dart';
 import 'package:flutter/material.dart';
-import 'package:simple_animation_progress_bar/simple_animation_progress_bar.dart';
 import 'package:sistem_pakar/Components/color.dart';
 import 'package:sistem_pakar/Components/round_button.dart';
 import 'package:sistem_pakar/Components/today_sleep_schedule_row.dart';
@@ -32,12 +31,6 @@ class _JadwalState extends State<Jadwal> {
       "time": "02/06/2023 05:10 AM",
       "duration": "in 14hours 30minutes"
     },
-    // {
-    //   "name": "Alarm",
-    //   "image": "assets/alaarm.png",
-    //   "time": "02/06/2023 05:10 AM",
-    //   "duration": "in 14hours 30minutes"
-    // },
   ];
 
   List<int> showingTooltipOnSpots = [4];
