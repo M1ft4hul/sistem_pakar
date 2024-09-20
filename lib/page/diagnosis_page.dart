@@ -182,10 +182,10 @@ class _DiagnosisPageState extends State<DiagnosisPage> {
         symptoms["Sakit kepala"]! &&
         symptoms["Mual dan muntah"]! &&
         symptoms["Ruam dikulit (muncul setelah 4 hari)"]! &&
-        symptoms["Kerusakan pembuluh darah (muncul darah dalam muntah)"]! &&
         symptoms["Pendarahan hidung (mimisan)"]! &&
-        symptoms["Pendarahan gusi"]! &&
         symptoms["Fases berwarna hitam"]! &&
+        !symptoms["Kerusakan pembuluh darah (muncul darah dalam muntah)"]! &&
+        !symptoms["Pendarahan gusi"]! &&
         !symptoms["Kebocoran diluar pembuluh darah"]! &&
         !symptoms["Pendarahan parah"]! &&
         !symptoms["Shock (Tekanan darah sangat rendah)"]!) {
