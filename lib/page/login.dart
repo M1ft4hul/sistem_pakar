@@ -29,7 +29,7 @@ class _LoginState extends State<Login> {
 
   Future _login() async {
     final response = await http.post(
-        Uri.parse('http://192.168.43.37/sistem_pakar_app/Login.php'),
+        Uri.parse('http://192.168.1.10/sistem_pakar_app/Login.php'),
         body: {
           "email": email.text,
           "password": password.text,
@@ -78,7 +78,7 @@ class _LoginState extends State<Login> {
                   height: 8,
                 ),
                 Text(
-                  "Login into your account",
+                  "Akses akun Anda sekarang",
                   style: regulerTextStyle.copyWith(
                       fontSize: 15, color: greyLightColor),
                 ),
@@ -159,8 +159,8 @@ class _LoginState extends State<Login> {
                                     builder: (context) => Home()));
                           } else {
                             final snackBar = SnackBar(
-                              content:
-                                  const Text('Opps!! Datanya masih salahh'),
+                              content: const Text(
+                                  'Opps!! Datanya salah, Silahkan cek kembali email dan password anda!'),
                             );
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(snackBar);
@@ -178,7 +178,7 @@ class _LoginState extends State<Login> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Don't have an account? ",
+                      "Belum punya akun? ",
                       style: lightTextStyle.copyWith(
                           color: greyBoldColor, fontSize: 15),
                     ),
@@ -190,7 +190,7 @@ class _LoginState extends State<Login> {
                                 builder: (context) => RegisterPage()));
                       },
                       child: Text(
-                        "Register now",
+                        "Daftar sekarang",
                         style: boldTextStyle.copyWith(
                             color: purpleColor, fontSize: 15),
                       ),

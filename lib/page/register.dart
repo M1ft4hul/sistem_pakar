@@ -28,7 +28,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Future _daftar() async {
     final response = await http.post(
-        Uri.parse('http://192.168.43.37/sistem_pakar_app/Register.php'),
+        Uri.parse('http://192.168.1.10/sistem_pakar_app/Register.php'),
         body: {
           "nama_lengkap": nama_lengkap.text,
           "email": email.text,
@@ -69,7 +69,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   height: 8,
                 ),
                 Text(
-                  "Register new your account",
+                  "Daftar akun baru di sini",
                   style: regulerTextStyle.copyWith(
                       fontSize: 15, color: greyLightColor),
                 ),
@@ -236,7 +236,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Already have an account? ",
+                      "Anda sudah memiliki akun? ",
                       style: lightTextStyle.copyWith(
                           color: greyBoldColor, fontSize: 15),
                     ),
@@ -246,7 +246,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             MaterialPageRoute(builder: (context) => Login()));
                       },
                       child: Text(
-                        "Login now",
+                        "Login sekarang",
                         style: boldTextStyle.copyWith(
                             color: purpleColor, fontSize: 15),
                       ),
